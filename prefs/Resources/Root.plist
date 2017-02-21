@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key>
+    <string>Goodges</string>
+
+	<key>items</key>
+	<array>
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>Changes require a respring.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSButtonCell</string>
+            <key>action</key>
+            <string>performRespring:</string>
+            <key>isDestructive</key>
+            <true/>
+            <key>label</key>
+            <string>Respring</string>
+        </dict>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>isEnabled</string>
+			<key>label</key>
+			<string>Enabled</string>
+		</dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerText</key>
+            <string>This will hide all labels that don't have a pending notification. If you have Springtomize or HideMeX installed, you must disable this same option in both tweaks.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <false/>
+            <key>key</key>
+            <string>hideAllLabels</string>
+            <key>label</key>
+            <string>Hide all labels</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Label options</string>
+            <key>footerText</key>
+            <string>ColorBadges must be installed for this option to work.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>key</key>
+            <string>enableLabels</string>
+            <key>label</key>
+            <string>Colorize labels</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>cellClass</key>
+            <string>GGColorPickerCell</string>
+            <key>key</key>
+            <string>labelsColor</string>
+            <key>alpha</key>
+            <false/>
+            <key>label</key>
+            <string>Labels color</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <false/>
+            <key>key</key>
+            <string>labelsUseCB</string>
+            <key>id</key>
+            <string>labelsUseCBSpec</string>
+            <key>label</key>
+            <string>Use ColorBadges</string>
+            <key>set</key>
+            <string>setLabelsUseCB:specifier:</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Highlight options</string>
+            <key>footerText</key>
+            <string>ColorBadges must be installed for this option to work.</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>key</key>
+            <string>enableHighlight</string>
+            <key>label</key>
+            <string>Highlight labels</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>cellClass</key>
+            <string>GGColorPickerCell</string>
+            <key>key</key>
+            <string>highlightColor</string>
+            <key>alpha</key>
+            <true/>
+            <key>label</key>
+            <string>Highlight color</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <false/>
+            <key>key</key>
+            <string>highlightUseCB</string>
+            <key>id</key>
+            <string>highlightUseCBSpec</string>
+            <key>label</key>
+            <string>Use ColorBadges</string>
+            <key>set</key>
+            <string>setHighlightUseCB:specifier:</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>App specific options</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>label</key>
+            <string>App specific options</string>
+            <key>bundle</key>
+            <string>AppList</string>
+            <key>isController</key>
+            <true/>
+            <key>ALAllowsSelection</key>
+            <true/>
+            <key>ALSectionDescriptors</key>
+            <array>
+                <dict>
+                    <key>predicate</key>
+                    <string>isSystemApplication = FALSE OR isSystemApplication = YES</string>
+                    <key>suppress-hidden-apps</key>
+                    <true/>
+                    <key>cell-class-name</key>
+                    <string>ALDisclosureIndicatedCell</string>
+                    <key>icon-size</key>
+                    <integer>29</integer>
+                    <key>action</key>
+                    <string>showPreferences</string>
+                    <key>display-identifier-macro</key>
+                    <string>@@DISPLAYIDENTIFIER@@</string>
+                    <key>entry</key>
+                    <dict>
+                        <key>cell</key>
+                        <string>PSLinkCell</string>
+                        <key>detail</key>
+                        <string>GGAppDetailsViewController</string>
+                        <key>bundle</key>
+                        <string>AppList</string>
+                        <key>label</key>
+                        <string>@@DISPLAYIDENTIFIER@@</string>
+                        <key>isController</key>
+                        <true/>
+                        <key>overridePrincipalClass</key>
+                        <true/>
+                    </dict>
+                </dict>
+            </array>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Glowing icon</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>label</key>
+            <string>Enable glowing icons</string>
+            <key>key</key>
+            <string>enableGlow</string>
+            <key>default</key>
+            <false/>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Shaking icon</string>
+            <key>requiredCapabilities</key>
+            <array>
+                <dict>
+                    <key>ipad</key>
+                    <false/>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>label</key>
+            <string>Enable shaking icons</string>
+            <key>key</key>
+            <string>enableShaking</string>
+            <key>default</key>
+            <false/>
+            <key>requiredCapabilities</key>
+            <array>
+                <dict>
+                    <key>ipad</key>
+                    <false/>
+                </dict>
+            </array>
+        </dict>
+	</array>
+</dict>
+</plist>

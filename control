@@ -1,0 +1,9 @@
+Package: com.faku99.goodges
+Name: Goodges
+Depends: mobilesubstrate, firmware (>= 8.0), org.thebigboss.libcolorpicker, applist
+Version: 1.1.0
+Architecture: iphoneos-arm
+Description: Good bye badges, hello labels !
+Maintainer: faku99 <faku99dev@gmail.com>
+Author: faku99
+Section: Tweaks

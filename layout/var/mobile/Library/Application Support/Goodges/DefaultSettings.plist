@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>enableHighlight</key>
+        <false/>
+        <key>enableLabels</key>
+        <true/>
+        <key>highlightColor</key>
+        <string>#EAFF00:1.00</string>
+        <key>isEnabled</key>
+        <true/>
+        <key>labelsColor</key>
+        <string>#FF0000</string>
+</dict>
+</plist>
