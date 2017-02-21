@@ -10,6 +10,10 @@ Also, if the app is set so as to not display any badges, Goodges will take that 
 
 ### Installation
 You must have [theos](https://github.com/theos/theos) installed to compile Goodges.
+Also, make sure to have *applist* and *libcolorpicker* placed in your `$THEOS/lib` folder.
+You can check my [headers repo](https://github.com/faku99/headers) for headers.
+
+Then, type the following in a terminal window:
 
     cd path/to/folder
     make
