@@ -2,7 +2,7 @@ TARGET = iphone:clang:9.0:9.0
 ARCHS = armv7 armv7s arm64
 DEBUG = 1
 
-include theos/makefiles/common.mk
+include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = Goodges
 
