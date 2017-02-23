@@ -45,15 +45,35 @@ static GGPrefsManager *sharedInstance = nil;
     return [_userSettings objectForKey:key];
 }
 
+-(id)valueForKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier {
+    return [[_appSettings objectForKey:displayIdentifier] objectForKey:key] ?: nil;
+}
+
 -(void)setValue:(id)value forKey:(NSString *)key {
     NSMutableDictionary *settings = [_userSettings mutableCopy];
 
     [settings setObject:value forKey:key];
     [settings writeToFile:USER_SETTINGS atomically:YES];
 
-    NSLog(@"Writed %@ for key:%@", value, key);
-
     _userSettings = [settings copy];
+}
+
+-(void)setValue:(id)value forKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier {
+    NSMutableDictionary *settings = [_appSettings mutableCopy];
+
+    NSMutableDictionary *appSettings = [[_appSettings objectForKey:displayIdentifier] mutableCopy];
+    if(appSettings == nil) {
+        appSettings = [[NSMutableDictionary alloc] init];
+    }
+    [appSettings setObject:value forKey:key];
+
+    [settings setObject:appSettings forKey:displayIdentifier];
+    [settings writeToFile:APP_SETTINGS atomically:YES];
+
+    NSLog(@"wrote data to APP_SETTINGS");
+    NSLog(@"data: %@", appSettings);
+
+    _appSettings = [settings copy];
 }
 
 -(void)dealloc {
@@ -76,6 +96,15 @@ static GGPrefsManager *sharedInstance = nil;
     NSLog(@"User settings:");
     for(NSString *key in [_userSettings allKeys]) {
         NSLog(@" - %@: %@", key, [_userSettings objectForKey:key]);
+    }
+
+    NSLog(@"Apps settings:");
+    for(NSString *key in [_appSettings allKeys]) {
+        NSLog(@" - %@", key);
+        NSDictionary *appSettings = [_appSettings objectForKey:key];
+        for(NSString *appKey in [appSettings allKeys]) {
+            NSLog(@" %@: %@", appKey, [appSettings objectForKey:appKey]);
+        }
     }
 }
 

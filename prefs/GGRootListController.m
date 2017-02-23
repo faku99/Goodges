@@ -1,10 +1,6 @@
-#import <GGPrefsManager.h>
-
 #import "GGRootListController.h"
 
 @interface GGRootListController ()
-
-@property (nonatomic, retain) GGPrefsManager *prefs;
 
 @end
 
@@ -34,7 +30,7 @@
 }
 
 -(id)readPreferenceValue:(PSSpecifier *)specifier {
-    return [_prefs valueForKey:[specifier propertyForKey:@"key"]] ?: [_prefs valueForKey:[specifier propertyForKey:@"default"]];
+    return [_prefs valueForKey:[specifier propertyForKey:@"key"]] ?: [specifier propertyForKey:@"default"];
 }
 
 -(void)setPreferenceValue:(id)value specifier:(PSSpecifier *)specifier {

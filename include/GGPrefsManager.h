@@ -30,7 +30,9 @@
 - (NSInteger)intForKey:(NSString *)key;
 
 - (id)valueForKey:(NSString *)key;
+- (id)valueForKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier;
 
 - (void)setValue:(id)value forKey:(NSString *)key;
+- (void)setValue:(id)value forKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier;
 
 @end
