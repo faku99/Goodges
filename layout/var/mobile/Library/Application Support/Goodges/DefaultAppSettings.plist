@@ -4,7 +4,7 @@
 <dict>
 	<key>com.apple.AppStore</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -17,7 +17,7 @@
 	</dict>
 	<key>com.apple.MobileSMS</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -30,7 +30,7 @@
 	</dict>
 	<key>com.apple.facetime</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -43,7 +43,7 @@
 	</dict>
 	<key>com.apple.mobilemail</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -56,7 +56,7 @@
 	</dict>
 	<key>com.apple.mobilephone</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -69,7 +69,7 @@
 	</dict>
 	<key>com.apple.reminders</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -82,7 +82,7 @@
 	</dict>
 	<key>com.facebook.Messenger</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -95,7 +95,7 @@
 	</dict>
 	<key>com.kik.chat</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -108,7 +108,7 @@
 	</dict>
 	<key>com.saurik.Cydia</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -121,7 +121,7 @@
 	</dict>
 	<key>com.toyopagroup.picaboo</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>
@@ -134,7 +134,7 @@
 	</dict>
 	<key>net.whatsapp.WhatsApp</key>
 	<dict>
-		<key>enabled</key>
+		<key>isEnabled</key>
 		<string>1</string>
 		<key>highlightColor</key>
 		<string>#000000</string>

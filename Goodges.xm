@@ -120,7 +120,11 @@ static const GGPrefsManager *_prefs;
 // Would be great to know why do we have to set the return value to 'NO'. If we don't
 // do that, labels appear gray...
 -(BOOL)colorspaceIsGrayscale {
-    return !self.allowsBadging;
+    if(self.allowsBadging) {
+        return NO;
+    }
+
+    return %orig();
 }
 
 -(UIColor *)textColor {

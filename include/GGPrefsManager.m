@@ -70,9 +70,6 @@ static GGPrefsManager *sharedInstance = nil;
     [settings setObject:appSettings forKey:displayIdentifier];
     [settings writeToFile:APP_SETTINGS atomically:YES];
 
-    NSLog(@"wrote data to APP_SETTINGS");
-    NSLog(@"data: %@", appSettings);
-
     _appSettings = [settings copy];
 }
 
@@ -89,10 +86,15 @@ static GGPrefsManager *sharedInstance = nil;
     _appSettings = [[NSDictionary alloc] initWithContentsOfFile:APP_SETTINGS];
     _userSettings = [[NSDictionary alloc] initWithContentsOfFile:USER_SETTINGS];
 
-    if(_userSettings == nil) {
-        _userSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_SETTINGS];
+    if(_appSettings == nil) {
+        _appSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_APP_SETTINGS];
     }
 
+    if(_userSettings == nil) {
+        _userSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_USER_SETTINGS];
+    }
+
+    // For debugging purposes.
     NSLog(@"User settings:");
     for(NSString *key in [_userSettings allKeys]) {
         NSLog(@" - %@: %@", key, [_userSettings objectForKey:key]);
