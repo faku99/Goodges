@@ -57,4 +57,10 @@
     [self reloadSpecifierID:@"labelsUseCBSpec" animated:YES];
 }
 
+-(void)_returnKeyPressed:(UIKeyboard *)keyboard {
+    [self.view endEditing:YES];
+
+    [super _returnKeyPressed:keyboard];
+}
+
 @end

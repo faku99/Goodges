@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MAILS</key>
+	<string>邮件</string>
+	<key>MESSAGES</key>
+	<string>信息</string>
+	<key>REMINDERS</key>
+	<string>提醒事项</string>
+	<key>AUTO_PLURAL</key>
+	<string>确定</string>
+	<key>CALL</key>
+	<string>电话</string>
+	<key>MESSAGE</key>
+	<string>信息</string>
+	<key>SNAP</key>
+	<string>撷取</string>
+	<key>REMINDER</key>
+	<string>提醒事项</string>
+	<key>MAIL</key>
+	<string>邮件</string>
+	<key>NOTIFICATIONS</key>
+	<string>通知</string>
+	<key>UPDATES</key>
+	<string>更新</string>
+	<key>NOTIFICATION</key>
+	<string>通知</string>
+	<key>PLURAL_CHAR</key>
+	<string>s</string>
+	<key>CALLS</key>
+	<string>电话</string>
+	<key>SNAPS</key>
+	<string>撷取</string>
+	<key>UPDATE</key>
+	<string>更新</string>
+</dict>
+</plist>

@@ -68,6 +68,26 @@
             <key>cell</key>
             <string>PSSwitchCell</string>
             <key>default</key>
+            <false/>
+            <key>key</key>
+            <string>showOnlyNumbers</string>
+            <key>label</key>
+            <string>Show only numbers</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <false/>
+            <key>key</key>
+            <string>capitalizeFirstLetter</string>
+            <key>label</key>
+            <string>Capitalize first letter</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
             <true/>
             <key>key</key>
             <string>enableLabels</string>

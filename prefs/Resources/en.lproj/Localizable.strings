@@ -1,0 +1,20 @@
+NOTIFICATION = "notification";
+NOTIFICATIONS = "notifications";
+
+MESSAGE = "message";
+MESSAGES = "messages";
+
+MAIL = "email";
+MAILS = "emails";
+
+UPDATE = "update";
+UPDATES = "updates";
+
+CALL = "call";
+CALLS = "calls";
+
+REMINDER = "reminder";
+REMINDERS = "reminders";
+
+SNAP = "snap";
+SNAPS = "snaps";

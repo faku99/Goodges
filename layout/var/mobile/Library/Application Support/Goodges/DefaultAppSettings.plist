@@ -5,145 +5,110 @@
 	<key>com.apple.AppStore</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>UPDATE</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>UPDATES</string>
 	</dict>
 	<key>com.apple.MobileSMS</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>MESSAGE</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>MESSAGES</string>
 	</dict>
 	<key>com.apple.facetime</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>CALL</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>CALLS</string>
 	</dict>
 	<key>com.apple.mobilemail</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>MAIL</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>MAILS</string>
 	</dict>
 	<key>com.apple.mobilephone</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>CALL</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>CALLS</string>
 	</dict>
 	<key>com.apple.reminders</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>REMINDER</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>REMINDERS</string>
 	</dict>
 	<key>com.facebook.Messenger</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>MESSAGE</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>MESSAGES</string>
 	</dict>
 	<key>com.kik.chat</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>MESSAGE</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>MESSAGES</string>
 	</dict>
 	<key>com.saurik.Cydia</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+		<true/>
+		<key>sLabel</key>
 		<string>UPDATE</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>UPDATES</string>
 	</dict>
 	<key>com.toyopagroup.picaboo</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+        <true/>
+		<key>sLabel</key>
 		<string>SNAP</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>SNAPS</string>
 	</dict>
 	<key>net.whatsapp.WhatsApp</key>
 	<dict>
 		<key>isEnabled</key>
-		<string>1</string>
-		<key>highlightColor</key>
-		<string>#000000</string>
-		<key>label</key>
+        <true/>
+		<key>sLabel</key>
 		<string>MESSAGE</string>
-		<key>labelColor</key>
-		<string>#000000</string>
 		<key>pLabel</key>
 		<string>MESSAGES</string>
 	</dict>
+    <key>ph.telegra.Telegraph</key>
+    <dict>
+        <key>isEnabled</key>
+        <true/>
+        <key>sLabel</key>
+        <string>MESSAGE</string>
+        <key>pLabel</key>
+        <string>MESSAGES</string>
+    </dict>
 </dict>
 </plist>

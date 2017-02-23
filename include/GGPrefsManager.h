@@ -1,3 +1,7 @@
+// Bundle path.
+#define BUNDLE_PATH             @"/Library/PreferenceBundles/GoodgesPrefs.bundle"
+
+// Settings files.
 #define APP_SETTINGS            @"/var/mobile/Library/Application Support/Goodges/AppSettings.plist"
 #define DEFAULT_APP_SETTINGS    @"/var/mobile/Library/Application Support/Goodges/DefaultAppSettings.plist"
 #define DEFAULT_USER_SETTINGS   @"/var/mobile/Library/Application Support/Goodges/DefaultUserSettings.plist"
@@ -8,6 +12,8 @@
 
 #define kHideAllLabels          @"hideAllLabels"
 
+#define kShowOnlyNumbers        @"showOnlyNumbers"
+#define kCapitalizeFirstLetter  @"capitalizeFirstLetter"
 #define kEnableLabels           @"enableLabels"
 #define kLabelsColor            @"labelsColor"
 #define kLabelsUseCB            @"labelsUseCB"
@@ -20,6 +26,12 @@
 
 #define kEnableShaking          @"enableShaking"
 
+#define kSingularLabel          @"sLabel"
+#define kPluralLabel            @"pLabel"
+
+#define kDefaultNotification    @"NOTIFICATION"
+#define kDefaultNotifications   @"NOTIFICATIONS"
+
 
 @interface GGPrefsManager : NSObject
 
@@ -30,6 +42,8 @@
 - (BOOL)boolForKey:(NSString *)key;
 
 - (NSInteger)intForKey:(NSString *)key;
+
+- (NSString *)localizedStringForKey:(NSString *)key;
 
 - (id)valueForKey:(NSString *)key;
 - (id)valueForKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier;

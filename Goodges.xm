@@ -86,6 +86,7 @@ static const GGPrefsManager *_prefs;
         }
 
          self.allowsBadging = self.icon != nil
+                              && [[_prefs valueForKey:kEnabled forDisplayIdentifier:[self.icon applicationBundleID]] boolValue]
                               && [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon]
                               && [self.icon badgeValue] > 0;
     }
@@ -168,7 +169,34 @@ static const GGPrefsManager *_prefs;
     NSInteger badgeValue = (self.folderIcon != nil) ? [self.folderIcon badgeValue] : [self.icon badgeValue];
 
     if(self.allowsBadging) {
-        return [NSString stringWithFormat:@"%ld", (long)badgeValue];
+        if([_prefs boolForKey:kShowOnlyNumbers]) {
+            return [NSString stringWithFormat:@"%ld", (long)badgeValue];
+        } else {
+            NSString *appLabel;
+            if(badgeValue == 1 && badgeValue == [self.icon badgeValue]) {
+                appLabel = [_prefs valueForKey:kSingularLabel forDisplayIdentifier:[self.icon applicationBundleID]];
+                if(appLabel == nil) {
+                    appLabel = kDefaultNotification;
+                }
+
+                appLabel = [_prefs localizedStringForKey:appLabel];
+            } else if(badgeValue > 1 && badgeValue == [self.icon badgeValue]) {
+                appLabel = [_prefs valueForKey:kPluralLabel forDisplayIdentifier:[self.icon applicationBundleID]];
+                if(appLabel == nil) {
+                    appLabel = kDefaultNotifications;
+                }
+
+                appLabel = [_prefs localizedStringForKey:appLabel];
+            } else {
+                appLabel = [_prefs localizedStringForKey:kDefaultNotifications];
+            }
+
+            if([_prefs boolForKey:kCapitalizeFirstLetter]) {
+                appLabel = [NSString stringWithFormat:@"%@%@", [[appLabel substringToIndex:1] uppercaseString], [appLabel substringFromIndex:1]];
+            }
+
+            return [NSString stringWithFormat:@"%ld %@", (long)badgeValue, appLabel];
+        }
     } else if(!self.allowsBadging && [_prefs boolForKey:kHideAllLabels]) {
         return @"";
     }

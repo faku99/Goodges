@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AUTO_PLURAL</key>
+	<string>YES</string>
+	<key>CALL</key>
+	<string>llamada</string>
+	<key>CALLS</key>
+	<string>llamadas</string>
+	<key>MAIL</key>
+	<string>correo</string>
+	<key>MAILS</key>
+	<string>correos</string>
+	<key>MESSAGE</key>
+	<string>mensaje</string>
+	<key>MESSAGES</key>
+	<string>mensajes</string>
+	<key>NOTIFICATION</key>
+	<string>notificación</string>
+	<key>NOTIFICATIONS</key>
+	<string>notificaciones</string>
+	<key>PLURAL_CHAR</key>
+	<string>s</string>
+	<key>REMINDER</key>
+	<string>recordatorio</string>
+	<key>REMINDERS</key>
+	<string>recordatorios</string>
+	<key>SNAP</key>
+	<string>snap</string>
+	<key>SNAPS</key>
+	<string>snaps</string>
+	<key>UPDATE</key>
+	<string>actualización</string>
+	<key>UPDATES</key>
+	<string>actualizaciones</string>
+</dict>
+</plist>

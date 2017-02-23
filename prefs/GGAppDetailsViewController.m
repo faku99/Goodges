@@ -5,6 +5,7 @@
 @interface GGAppDetailsViewController ()
 
 @property (nonatomic, retain) ALApplicationList *appList;
+@property (nonatomic, retain) NSString *displayIdentifier;
 
 @end
 
@@ -21,9 +22,22 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     _appList = [ALApplicationList sharedApplicationList];
-    self.title = [_appList valueForKey:@"displayName" forDisplayIdentifier:[self.specifier name]];
+    _displayIdentifier = [[self specifier] name];
+    self.title = [_appList valueForKey:@"displayName" forDisplayIdentifier:_displayIdentifier];
 
     [super viewWillAppear:animated];
+}
+
+-(NSString *)getLocalizedString:(PSSpecifier *)specifier {
+    return [self.prefs localizedStringForKey:[self readPreferenceValue:specifier]];
+}
+
+-(id)readPreferenceValue:(PSSpecifier *)specifier {
+    return [self.prefs valueForKey:[specifier propertyForKey:@"key"] forDisplayIdentifier:_displayIdentifier] ?: [specifier propertyForKey:@"default"];
+}
+
+-(void)setPreferenceValue:(id)value specifier:(PSSpecifier *)specifier {
+    [self.prefs setValue:value forKey:[specifier propertyForKey:@"key"] forDisplayIdentifier:_displayIdentifier];
 }
 
 @end

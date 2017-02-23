@@ -7,12 +7,58 @@
 
     <key>items</key>
     <array>
+
         <dict>
             <key>cell</key>
             <string>PSGroupCell</string>
             <key>label</key>
-            <string>coucou</string>
+            <string>Enable</string>
         </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>label</key>
+            <string>Enabled</string>
+            <key>default</key>
+            <true/>
+            <key>key</key>
+            <string>isEnabled</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Singular form</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSEditTextCell</string>
+            <key>key</key>
+            <string>sLabel</string>
+            <key>default</key>
+            <string>NOTIFICATION</string>
+            <key>get</key>
+            <string>getLocalizedString:</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Plural form</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSEditTextCell</string>
+            <key>key</key>
+            <string>pLabel</string>
+            <key>default</key>
+            <string>NOTIFICATIONS</string>
+            <key>get</key>
+            <string>getLocalizedString:</string>
+        </dict>
+
     </array>
 </dict>
 </plist>

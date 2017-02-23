@@ -1,0 +1,20 @@
+NOTIFICATION = "إشعار";
+NOTIFICATIONS = "إشعار";
+
+MESSAGE = "رسالة";
+MESSAGES = "رسائل";
+
+MAIL = "إيميل";
+MAILS = "إيميلات";
+
+UPDATE = "تحديث";
+UPDATES = "تحديثات";
+
+CALL = "مكالمة";
+CALLS = "مكالمات";
+
+REMINDER = "تذكير";
+REMINDERS = "تذكيرات";
+
+SNAP = "إشعار";
+SNAPS = "إشعار";

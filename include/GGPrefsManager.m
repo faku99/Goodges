@@ -5,6 +5,7 @@
 @interface GGPrefsManager ()
 
 @property (nonatomic, retain) NSDictionary *appSettings;
+@property (nonatomic, retain) NSBundle *bundle;
 @property (nonatomic, retain) NSDictionary *userSettings;
 
 @end
@@ -27,6 +28,12 @@ static GGPrefsManager *sharedInstance = nil;
     self = [super init];
 
     if(self) {
+        _bundle = [NSBundle bundleWithPath:BUNDLE_PATH];
+        [_bundle load];
+        if(_bundle == nil) {
+            HBLogError(@"Preference bundle not found!");
+        }
+
         [self loadPreferences];
     }
 
@@ -39,6 +46,10 @@ static GGPrefsManager *sharedInstance = nil;
 
 -(NSInteger)intForKey:(NSString *)key {
     return [[_userSettings objectForKey:key] intValue];
+}
+
+-(NSString *)localizedStringForKey:(NSString *)key {
+    return [_bundle localizedStringForKey:key value:key table:nil];
 }
 
 -(id)valueForKey:(NSString *)key {
