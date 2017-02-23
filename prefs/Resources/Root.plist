@@ -17,7 +17,7 @@
             <key>cell</key>
             <string>PSButtonCell</string>
             <key>action</key>
-            <string>performRespring:</string>
+            <string>performRespring</string>
             <key>isDestructive</key>
             <true/>
             <key>label</key>
@@ -263,6 +263,59 @@
                     <false/>
                 </dict>
             </array>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Credits</string>
+            <key>footerText</key>
+            <string>If you enjoy Goodges, please consider a little donation!</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>detail</key>
+            <string>GGCreditsListController</string>
+            <key>isController</key>
+            <true/>
+            <key>label</key>
+            <string>Credits</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSButtonCell</string>
+            <key>action</key>
+            <string>paypal</string>
+            <key>label</key>
+            <string>Make a donation ❤️</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Advanced</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>detail</key>
+            <string>GGAdvancedListController</string>
+            <key>isController</key>
+            <true/>
+            <key>label</key>
+            <string>Advanced</string>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>footerAlignment</key>
+            <integer>1</integer>
+            <key>footerText</key>
+            <string>2017 © Coded with love by faku99</string>
         </dict>
 	</array>
 </dict>

@@ -1,4 +1,3 @@
-#import <common.h>
 #import <GGPrefsManager.h>
 #import <UIColor+Goodges.h>
 
@@ -11,6 +10,14 @@
 
 @property (nonatomic, retain) UIView *colorPreview;
 @property (nonatomic, retain) GGPrefsManager *prefs;
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier specifier:(PSSpecifier *)specifier;
+
+- (NSString *)previewColor;
+
+- (void)displayAlert;
+- (void)drawAccessoryView;
+- (void)updateCellDisplay;
 
 @end
 

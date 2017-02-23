@@ -6,6 +6,6 @@
 
 @property (nonatomic, retain) GGPrefsManager *prefs;
 
-- (void)performRespring:(PSSpecifier *)specifier;
+- (void)performRespring;
 
 @end

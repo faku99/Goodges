@@ -1,5 +1,5 @@
 #import <Preferences/PSTableCell.h>
 
-@interface GGColorPickerCell : PSTableCell
+@interface GGDeveloperCell : PSTableCell
 
 @end

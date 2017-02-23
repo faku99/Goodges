@@ -1,6 +1,4 @@
-#import "common.h"
 #import "GGPrefsManager.h"
-
 
 @interface GGPrefsManager ()
 
@@ -38,6 +36,17 @@ static GGPrefsManager *sharedInstance = nil;
     }
 
     return self;
+}
+
+-(BOOL)appIsEnabledForDisplayIdentifier:(NSString *)displayIdentifier {
+    id appEnabled = [self valueForKey:kEnabled forDisplayIdentifier:displayIdentifier];
+
+    // If no settings exist for the app, we assume that it's enabled.
+    if(appEnabled == nil) {
+        appEnabled = @(YES);
+    }
+
+    return [appEnabled boolValue];
 }
 
 -(BOOL)boolForKey:(NSString *)key {
@@ -103,21 +112,6 @@ static GGPrefsManager *sharedInstance = nil;
 
     if(_userSettings == nil) {
         _userSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_USER_SETTINGS];
-    }
-
-    // For debugging purposes.
-    NSLog(@"User settings:");
-    for(NSString *key in [_userSettings allKeys]) {
-        NSLog(@" - %@: %@", key, [_userSettings objectForKey:key]);
-    }
-
-    NSLog(@"Apps settings:");
-    for(NSString *key in [_appSettings allKeys]) {
-        NSLog(@" - %@", key);
-        NSDictionary *appSettings = [_appSettings objectForKey:key];
-        for(NSString *appKey in [appSettings allKeys]) {
-            NSLog(@" %@: %@", appKey, [appSettings objectForKey:appKey]);
-        }
     }
 }
 

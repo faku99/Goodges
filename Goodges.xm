@@ -17,8 +17,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-#import <common.h>
 #import <version.h>
 
 #import <GGPrefsManager.h>
@@ -85,8 +83,8 @@ static const GGPrefsManager *_prefs;
             self.icon = (SBApplicationIcon *)icon;
         }
 
-         self.allowsBadging = self.icon != nil
-                              && [[_prefs valueForKey:kEnabled forDisplayIdentifier:[self.icon applicationBundleID]] boolValue]
+        self.allowsBadging = self.icon != nil
+                              && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]]
                               && [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon]
                               && [self.icon badgeValue] > 0;
     }
@@ -246,7 +244,7 @@ static const GGPrefsManager *_prefs;
         NSInteger badgeValue = [icon badgeValue];
         BOOL allowsBadging = [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon];
 
-        if(allowsBadging && badgeValue > 0) {
+        if(allowsBadging && badgeValue > 0 && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]]) {
             [self shakeIcon];
         } else {
             [[self layer] removeAllAnimations];
@@ -281,7 +279,7 @@ static const GGPrefsManager *_prefs;
 
     // Glowing icon.
     if([_prefs boolForKey:kEnableGlow]) {
-        if(allowsBadging) {
+        if(allowsBadging && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]]) {
             [self prepareDropGlow];
             [self showDropGlow:YES];
         } else {
@@ -342,9 +340,9 @@ static const GGPrefsManager *_prefs;
     dlopen("/Library/MobileSubstrate/DynamicLibraries/ColorBadges.dylib", RTLD_LAZY);
 
     if([_prefs boolForKey:kEnabled]) {
-        NSLog(@"Goodges enabled. Launching...");
+        HBLogDebug(@"Goodges enabled. Launching...");
         %init(_ungrouped);
     } else {
-        NSLog(@"Goodges not enabled. Doing nothing.");
+        HBLogDebug(@"Goodges not enabled. Doing nothing.");
     }
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>title</key>
+    <string>Credits</string>
+
+    <key>items</key>
+    <array>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Developer</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSLinkCell</string>
+            <key>cellClass</key>
+            <string>GGDeveloperCell</string>
+            <key>height</key>
+            <real>60.0</real>
+            <key>hasIcon</key>
+            <true/>
+        </dict>
+
+        <dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Special thanks</string>
+            <key>footerText</key>
+            <string>Thanks to all the people who helped to translate Goodges:
+
+- Arabic : @MiRO92
+- Chinese : @darkj2k
+- Dutch : @Bomans
+- German : @MarioBritten
+- Italian : @danitrap
+- Spanish : /u/DefinitelyNotPixel
+
+Also, many thanks to @PauloRuberto for designing the icon.
+            </string>
+        </dict>
+
+    </array>
+</dict>
+</plist>

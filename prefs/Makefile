@@ -6,9 +6,9 @@ include $(THEOS)/makefiles/common.mk
 BUNDLE_NAME = GoodgesPrefs
 
 GoodgesPrefs_FILES  = ../include/GGPrefsManager.m ../include/UIColor+Goodges.m
-GoodgesPrefs_FILES += GGAppDetailsViewController.m GGColorPickerCell.m GGRootListController.m
+GoodgesPrefs_FILES += GGAdvancedListController.m GGAppDetailsViewController.m GGColorPickerCell.m GGCreditsListController.m GGDeveloperCell.m GGRootListController.m
 
-GoodgesPrefs_FRAMEWORKS = UIKit
+GoodgesPrefs_FRAMEWORKS = MessageUI Social UIKit
 GoodgesPrefs_PRIVATE_FRAMEWORKS = Preferences
 
 GoodgesPrefs_LIBRARIES = colorpicker applist

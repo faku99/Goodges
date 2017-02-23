@@ -2,15 +2,29 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-        <key>enableHighlight</key>
-        <false/>
-        <key>enableLabels</key>
-        <true/>
-        <key>highlightColor</key>
-        <string>#EAFF00:1.00</string>
-        <key>isEnabled</key>
-        <true/>
-        <key>labelsColor</key>
-        <string>#FF0000</string>
+    <key>capitalizeFirstLetter</key>
+    <false/>
+    <key>enableGlow</key>
+    <false/>
+    <key>enableHighlight</key>
+    <true/>
+    <key>enableLabels</key>
+    <false/>
+    <key>enableShaking</key>
+    <false/>
+    <key>hideAllLabels</key>
+    <false/>
+    <key>highlightColor</key>
+    <string>#FF006E:1.00</string>
+    <key>highlightUseCB</key>
+    <false/>
+    <key>isEnabled</key>
+    <true/>
+    <key>labelsColor</key>
+    <string>#00FF23:1.00</string>
+    <key>labelsUseCB</key>
+    <false/>
+    <key>showOnlyNumbers</key>
+    <true/>
 </dict>
 </plist>

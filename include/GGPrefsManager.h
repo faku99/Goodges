@@ -39,6 +39,7 @@
 
 - (instancetype)init;
 
+- (BOOL)appIsEnabledForDisplayIdentifier:(NSString *)displayIdentifier;
 - (BOOL)boolForKey:(NSString *)key;
 
 - (NSInteger)intForKey:(NSString *)key;
