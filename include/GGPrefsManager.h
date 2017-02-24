@@ -5,6 +5,7 @@
 #define APP_SETTINGS            @"/var/mobile/Library/Application Support/Goodges/AppSettings.plist"
 #define DEFAULT_APP_SETTINGS    @"/Library/Application Support/Goodges/DefaultAppSettings.plist"
 #define DEFAULT_USER_SETTINGS   @"/Library/Application Support/Goodges/DefaultUserSettings.plist"
+#define SETTINGS_PATH           @"/var/mobile/Library/Application Support/Goodges"
 #define USER_SETTINGS           @"/var/mobile/Library/Application Support/Goodges/UserSettings.plist"
 
 // Settings constants

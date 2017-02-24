@@ -106,6 +106,14 @@ static GGPrefsManager *sharedInstance = nil;
     _appSettings = [[NSDictionary alloc] initWithContentsOfFile:APP_SETTINGS];
     _userSettings = [[NSDictionary alloc] initWithContentsOfFile:USER_SETTINGS];
 
+    NSFileManager *manager = [NSFileManager defaultManager];
+
+    if(![manager fileExistsAtPath:SETTINGS_PATH isDirectory:nil]) {
+        if(![manager createDirectoryAtPath:SETTINGS_PATH withIntermediateDirectories:YES attributes:nil error:nil]) {
+            HBLogError(@"Error creating folder...");
+        }
+    }
+
     if(_appSettings == nil) {
         _appSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_APP_SETTINGS];
     }
