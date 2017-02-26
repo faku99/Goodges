@@ -47,6 +47,12 @@ static const GGPrefsManager *_prefs;
 
 @end
 
+@interface SBIconController (Goodges)
+
+@property (nonatomic, retain) SBIconView *GGLaunchingIcon;
+
+@end
+
 #pragma mark - GGIconLabelImageParameters definition
 
 @interface GGIconLabelImageParameters : SBIconLabelImageParameters
@@ -244,10 +250,14 @@ static const GGPrefsManager *_prefs;
         NSInteger badgeValue = [icon badgeValue];
         BOOL allowsBadging = [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon];
 
-        if(allowsBadging && badgeValue > 0 && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]]) {
+        // Crossfade view is not nil when the application is launching. If shaking icons is enabled,
+        // we must remove the animations before the launch or it will create animations issues.
+        UIView *crossfadeView = MSHookIvar<UIView *>(self, "_crossfadeView");
+
+        if(allowsBadging && badgeValue > 0 && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]] && crossfadeView == nil) {
             [self shakeIcon];
         } else {
-            [[self layer] removeAllAnimations];
+            [self removeAllIconAnimations];
         }
     }
 }
