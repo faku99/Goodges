@@ -292,7 +292,9 @@ static const GGPrefsManager *_prefs;
 
     if(params != nil) {
         SBIconLabelImage *labelImage = [%c(SBIconLabelImage) _drawLabelImageForParameters:params];
-        [[self labelView] setImage:labelImage];
+        // We have to hook the labelView because the method [self labelView] only exists for iOS9 and higher.
+        SBIconLabelView *labelView = MSHookIvar<SBIconLabelView *>(self, "_labelView");
+        [labelView setImage:labelImage];
     }
 
     %orig();
@@ -314,7 +316,7 @@ static const GGPrefsManager *_prefs;
         }
 
         SBIconView *iconView = [map mappedIconViewForIcon:icon];
-        [[iconView layer] removeAllAnimations];
+        [iconView removeAllIconAnimations];
     }
 
     SBDockIconListView *dockView = [self dockListView];
@@ -327,7 +329,7 @@ static const GGPrefsManager *_prefs;
         }
 
         SBIconView *iconView = [map mappedIconViewForIcon:icon];
-        [[iconView layer] removeAllAnimations];
+        [iconView removeAllIconAnimations];
     }
 }
 
