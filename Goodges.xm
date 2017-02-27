@@ -138,6 +138,10 @@ static const GGPrefsManager *_prefs;
             int color = [[%c(ColorBadges) sharedInstance] colorForIcon:self.icon];
 
             return [UIColor RGBAColorFromHexString:[NSString stringWithFormat:@"#0x%0X", color]];
+        } else if([_prefs boolForKey:kInverseColor]) {
+            UIColor *color = [self focusHighlightColor];
+
+            return [UIColor inverseColor:color];
         }
 
         return [UIColor RGBAColorFromHexString:[_prefs valueForKey:kLabelsColor]];
@@ -240,7 +244,7 @@ static const GGPrefsManager *_prefs;
 
     // Remove badges.
     UIView *accessoryView = MSHookIvar<UIView *>(self, "_accessoryView");
-    if(accessoryView && [accessoryView isKindOfClass:%c(SBIconBadgeView)]) {
+    if(accessoryView && [accessoryView isKindOfClass:%c(SBIconBadgeView)] && [_prefs boolForKey:kHideBadges]) {
         [accessoryView removeFromSuperview];
         accessoryView = nil;
     }

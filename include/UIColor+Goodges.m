@@ -44,4 +44,12 @@
     return [NSString stringWithFormat:@"#%02X%02X%02X", (int)(r * 255), (int)(g * 255), (int)(b * 255)];
 }
 
++(UIColor *)inverseColor:(UIColor *)color {
+    CGFloat r, g, b, a;
+
+    [color getRed:&r green:&g blue:&b alpha:&a];
+
+    return [UIColor colorWithRed:(1.0 - r) green:(1.0 - g) blue:(1.0 - b) alpha:a];
+}
+
 @end

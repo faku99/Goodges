@@ -12,11 +12,13 @@
 #define kEnabled                @"isEnabled"
 
 #define kHideAllLabels          @"hideAllLabels"
+#define kHideBadges             @"hideBadges"
 
 #define kShowOnlyNumbers        @"showOnlyNumbers"
 #define kCapitalizeFirstLetter  @"capitalizeFirstLetter"
 #define kEnableLabels           @"enableLabels"
 #define kLabelsColor            @"labelsColor"
+#define kInverseColor           @"inverseColor"
 #define kLabelsUseCB            @"labelsUseCB"
 
 #define kEnableHighlight        @"enableHighlight"

@@ -55,6 +55,16 @@
             <key>label</key>
             <string>Hide all labels</string>
         </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <true/>
+            <key>key</key>
+            <string>hideBadges</string>
+            <key>label</key>
+            <string>Hide badges</string>
+        </dict>
 
         <dict>
             <key>cell</key>
@@ -105,6 +115,16 @@
             <false/>
             <key>label</key>
             <string>Labels color</string>
+        </dict>
+        <dict>
+            <key>cell</key>
+            <string>PSSwitchCell</string>
+            <key>default</key>
+            <false/>
+            <key>key</key>
+            <string>inverseColor</string>
+            <key>label</key>
+            <string>Inverse color from highlight</string>
         </dict>
         <dict>
             <key>cell</key>
@@ -222,6 +242,8 @@
             <string>PSGroupCell</string>
             <key>label</key>
             <string>Glowing icon</string>
+            <key>footerText</key>
+            <string>This option will add a blur around the icon.</string>
         </dict>
         <dict>
             <key>cell</key>
@@ -239,13 +261,13 @@
             <string>PSGroupCell</string>
             <key>label</key>
             <string>Shaking icon</string>
-            <key>requiredCapabilities</key>
+            <!--<key>requiredCapabilities</key>
             <array>
                 <dict>
                     <key>ipad</key>
                     <false/>
                 </dict>
-            </array>
+            </array>-->
         </dict>
         <dict>
             <key>cell</key>
@@ -256,13 +278,13 @@
             <string>enableShaking</string>
             <key>default</key>
             <false/>
-            <key>requiredCapabilities</key>
+            <!--<key>requiredCapabilities</key>
             <array>
                 <dict>
                     <key>ipad</key>
                     <false/>
                 </dict>
-            </array>
+            </array>-->
         </dict>
 
         <dict>
