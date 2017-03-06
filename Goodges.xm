@@ -47,12 +47,6 @@ static const GGPrefsManager *_prefs;
 
 @end
 
-@interface SBIconController (Goodges)
-
-@property (nonatomic, retain) SBIconView *GGLaunchingIcon;
-
-@end
-
 #pragma mark - GGIconLabelImageParameters definition
 
 @interface GGIconLabelImageParameters : SBIconLabelImageParameters
@@ -90,9 +84,9 @@ static const GGPrefsManager *_prefs;
         }
 
         self.allowsBadging = self.icon != nil
-                              && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]]
-                              && [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon]
-                              && [self.icon badgeValue] > 0;
+                             && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]]
+                             && [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon]
+                             && [self.icon badgeValue] > 0;
     }
 
     return self;
@@ -108,7 +102,7 @@ static const GGPrefsManager *_prefs;
 
     SBFolder *folder = [(SBFolderIcon *)folderIcon folder];
     for(SBApplicationIcon *icon in [folder allIcons]) {
-        if(![[%c(SBIconController) sharedInstance] iconAllowsBadging:icon]) {
+        if(![[%c(SBIconController) sharedInstance] iconAllowsBadging:icon] || ![_prefs appIsEnabledForDisplayIdentifier:[icon applicationBundleID]]) {
             continue;
         }
 
@@ -206,7 +200,7 @@ static const GGPrefsManager *_prefs;
             return [NSString stringWithFormat:@"%ld %@", (long)badgeValue, appLabel];
         }
     } else if(!self.allowsBadging && [_prefs boolForKey:kHideAllLabels]) {
-        return @"";
+        return nil;
     }
 
     return %orig();
@@ -261,7 +255,7 @@ static const GGPrefsManager *_prefs;
         if(allowsBadging && badgeValue > 0 && [_prefs appIsEnabledForDisplayIdentifier:[self.icon applicationBundleID]] && crossfadeView == nil) {
             [self shakeIcon];
         } else {
-            [self removeAllIconAnimations];
+            [[self layer] removeAllAnimations];
         }
     }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CALL</key>
+	<string>번의 전화</string>
+	<key>CALLS</key>
+	<string>번의 전화</string>
+	<key>MAIL</key>
+	<string>개의 우편</string>
+	<key>MAILS</key>
+	<string>개의 우편</string>
+	<key>MESSAGE</key>
+	<string>개의 문자</string>
+	<key>MESSAGES</key>
+	<string>개의 문자</string>
+	<key>NOTIFICATION</key>
+	<string>개의 알림</string>
+	<key>NOTIFICATIONS</key>
+	<string>개의 알림</string>
+	<key>REMINDER</key>
+	<string>개의 미리알림</string>
+	<key>REMINDERS</key>
+	<string>개의 미리알림</string>
+	<key>SNAP</key>
+	<string>개의 스냅쳇</string>
+	<key>SNAPS</key>
+	<string>개의 스냅쳇</string>
+	<key>UPDATE</key>
+	<string>개의 업데이트</string>
+	<key>UPDATES</key>
+	<string>개의 업데이트</string>
+</dict>
+</plist>
