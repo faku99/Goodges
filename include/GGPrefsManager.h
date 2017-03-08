@@ -45,8 +45,6 @@
 - (BOOL)appIsEnabledForDisplayIdentifier:(NSString *)displayIdentifier;
 - (BOOL)boolForKey:(NSString *)key;
 
-- (NSInteger)intForKey:(NSString *)key;
-
 - (NSString *)localizedStringForKey:(NSString *)key;
 
 - (id)valueForKey:(NSString *)key;

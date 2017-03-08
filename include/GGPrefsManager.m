@@ -50,11 +50,7 @@ static GGPrefsManager *sharedInstance = nil;
 }
 
 -(BOOL)boolForKey:(NSString *)key {
-    return [[_userSettings objectForKey:key] boolValue];
-}
-
--(NSInteger)intForKey:(NSString *)key {
-    return [[_userSettings objectForKey:key] intValue];
+    return [[_userSettings objectForKey:key] boolValue] ?: NO;
 }
 
 -(NSString *)localizedStringForKey:(NSString *)key {
@@ -62,7 +58,7 @@ static GGPrefsManager *sharedInstance = nil;
 }
 
 -(id)valueForKey:(NSString *)key {
-    return [_userSettings objectForKey:key];
+    return [_userSettings objectForKey:key] ?: nil;
 }
 
 -(id)valueForKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier {
