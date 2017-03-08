@@ -14,9 +14,13 @@
     <false/>
     <key>hideAllLabels</key>
     <false/>
+    <key>hideBadges</key>
+    <true/>
     <key>highlightColor</key>
     <string>#FF006E:1.00</string>
     <key>highlightUseCB</key>
+    <false/>
+    <key>inverseColor</key>
     <false/>
     <key>isEnabled</key>
     <true/>
