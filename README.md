@@ -9,6 +9,9 @@ But Goodges is intelligent ! It varies depending on the app : if there are two u
 Also, if the app is set so as to not display any badges, Goodges will take that into account and will not show anything.
 
 ### Changelog
+**Version 1.1.4**
+* Fixes hidden labels that would display randomly.
+
 **Version 1.1.3**
 * Added Korean translation (thanks @BamGwanRamCha).
 * Temporary fix for shaking icons.

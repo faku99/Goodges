@@ -234,6 +234,17 @@ static const GGPrefsManager *_prefs;
 }
 
 -(void)layoutSubviews {
+    SBIcon *icon = [self icon];
+    NSInteger badgeValue = [icon badgeValue];
+    BOOL allowsBadging = [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon];
+
+    [self setLabelHidden:([_prefs boolForKey:kHideAllLabels] && (badgeValue < 1 || !allowsBadging))];
+
+    SBIconLabelView *labelView = MSHookIvar<SBIconLabelView *>(self, "_labelView");
+    if(labelView != nil) {
+        [labelView setImageParameters:[self _labelImageParameters]];
+    }
+
     %orig();
 
     // Remove badges.
@@ -244,10 +255,6 @@ static const GGPrefsManager *_prefs;
     }
 
     if([_prefs boolForKey:kEnableShaking]) {
-        SBIcon *icon = [self icon];
-        NSInteger badgeValue = [icon badgeValue];
-        BOOL allowsBadging = [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon];
-
         // Crossfade view is not nil when the application is launching. If shaking icons is enabled,
         // we must remove the animations before the launch or it will create animations issues.
         UIView *crossfadeView = MSHookIvar<UIView *>(self, "_crossfadeView");
@@ -257,6 +264,21 @@ static const GGPrefsManager *_prefs;
         } else {
             [[self layer] removeAllAnimations];
         }
+    }
+
+    // It's necessary to reload the label image every time the label is updated.
+    SBIconLabelImageParameters *params = [self _labelImageParameters];
+    if(params != nil) {
+        SBIconLabelImage *labelImage = [%c(SBIconLabelImage) _drawLabelImageForParameters:params];
+        // We have to hook the labelView because the method [self labelView] only exists for iOS9 and higher.
+        SBIconLabelView *labelView = MSHookIvar<SBIconLabelView *>(self, "_labelView");
+        [labelView setImage:labelImage];
+        [labelView.imageView setImage:labelImage];
+
+        CGRect frame = labelView.imageView.frame;
+        frame.size = labelImage.size;
+
+        [labelView.imageView setFrame:frame];
     }
 }
 
@@ -293,16 +315,6 @@ static const GGPrefsManager *_prefs;
         } else {
             [self removeDropGlow];
         }
-    }
-
-    // It's necessary to reload the label image every time the label is updated.
-    SBIconLabelImageParameters *params = [self _labelImageParameters];
-
-    if(params != nil) {
-        SBIconLabelImage *labelImage = [%c(SBIconLabelImage) _drawLabelImageForParameters:params];
-        // We have to hook the labelView because the method [self labelView] only exists for iOS9 and higher.
-        SBIconLabelView *labelView = MSHookIvar<SBIconLabelView *>(self, "_labelView");
-        [labelView setImage:labelImage];
     }
 
     %orig();
