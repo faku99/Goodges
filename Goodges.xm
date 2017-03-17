@@ -238,20 +238,38 @@ static const GGPrefsManager *_prefs;
     NSInteger badgeValue = [icon badgeValue];
     BOOL allowsBadging = [[%c(SBIconController) sharedInstance] iconAllowsBadging:icon];
 
-    [self setLabelHidden:([_prefs boolForKey:kHideAllLabels] && (badgeValue < 1 || !allowsBadging))];
+    BOOL labelHidden = [_prefs boolForKey:kHideAllLabels] && (badgeValue < 1 || !allowsBadging);
 
+    // It's necessary to reload the label image every time the label is updated.
+    SBIconLabelImageParameters *params = [self _labelImageParameters];
     SBIconLabelView *labelView = MSHookIvar<SBIconLabelView *>(self, "_labelView");
     if(labelView != nil) {
-        [labelView setImageParameters:[self _labelImageParameters]];
+        [labelView setImageParameters:params];
     }
 
+    if(params != nil) {
+        SBIconLabelImage *labelImage = [%c(SBIconLabelImage) _drawLabelImageForParameters:params];
+        // We have to hook the labelView because the method [self labelView] only exists for iOS9 and higher.
+        [labelView setImage:labelImage];
+        [labelView.imageView setImage:labelImage];
+
+        CGRect frame = labelView.imageView.frame;
+        frame.size = labelImage.size;
+
+        [labelView.imageView setFrame:frame];
+    }
+
+    [self setLabelHidden:labelHidden];
+
     %orig();
+
+    // This single line fixes Harbor compatibility.
+    labelView.hidden = labelHidden;
 
     // Remove badges.
     UIView *accessoryView = MSHookIvar<UIView *>(self, "_accessoryView");
     if(accessoryView && [accessoryView isKindOfClass:%c(SBIconBadgeView)] && [_prefs boolForKey:kHideBadges]) {
-        [accessoryView removeFromSuperview];
-        accessoryView = nil;
+        accessoryView.hidden = YES;
     }
 
     if([_prefs boolForKey:kEnableShaking]) {
@@ -264,21 +282,6 @@ static const GGPrefsManager *_prefs;
         } else {
             [[self layer] removeAllAnimations];
         }
-    }
-
-    // It's necessary to reload the label image every time the label is updated.
-    SBIconLabelImageParameters *params = [self _labelImageParameters];
-    if(params != nil) {
-        SBIconLabelImage *labelImage = [%c(SBIconLabelImage) _drawLabelImageForParameters:params];
-        // We have to hook the labelView because the method [self labelView] only exists for iOS9 and higher.
-        SBIconLabelView *labelView = MSHookIvar<SBIconLabelView *>(self, "_labelView");
-        [labelView setImage:labelImage];
-        [labelView.imageView setImage:labelImage];
-
-        CGRect frame = labelView.imageView.frame;
-        frame.size = labelImage.size;
-
-        [labelView.imageView setFrame:frame];
     }
 }
 
@@ -360,6 +363,7 @@ static const GGPrefsManager *_prefs;
     _prefs = [%c(GGPrefsManager) sharedManager];
 
     dlopen("/Library/MobileSubstrate/DynamicLibraries/ColorBadges.dylib", RTLD_LAZY);
+    dlopen("/Library/MobileSubstrate/DynamicLibraries/Harbor.dylib", RTLD_NOW);
 
     if([_prefs boolForKey:kEnabled]) {
         HBLogDebug(@"Goodges enabled. Launching...");

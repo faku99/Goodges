@@ -4,6 +4,8 @@
 
 @property (nonatomic, retain) NSDictionary *appSettings;
 @property (nonatomic, retain) NSBundle *bundle;
+@property (nonatomic, retain) NSDictionary *defaultAppSettings;
+@property (nonatomic, retain) NSDictionary *defaultUserSettings;
 @property (nonatomic, retain) NSDictionary *userSettings;
 
 @end
@@ -50,7 +52,13 @@ static GGPrefsManager *sharedInstance = nil;
 }
 
 -(BOOL)boolForKey:(NSString *)key {
-    return [[_userSettings objectForKey:key] boolValue] ?: NO;
+    id ret = [_userSettings objectForKey:key];
+
+    if(ret == nil) {
+        ret = [_defaultUserSettings objectForKey:key];
+    }
+
+    return [ret boolValue];
 }
 
 -(NSString *)localizedStringForKey:(NSString *)key {
@@ -58,11 +66,11 @@ static GGPrefsManager *sharedInstance = nil;
 }
 
 -(id)valueForKey:(NSString *)key {
-    return [_userSettings objectForKey:key] ?: nil;
+    return [_userSettings objectForKey:key] ?: [_defaultUserSettings objectForKey:key];
 }
 
 -(id)valueForKey:(NSString *)key forDisplayIdentifier:(NSString *)displayIdentifier {
-    return [[_appSettings objectForKey:displayIdentifier] objectForKey:key] ?: nil;
+    return [[_appSettings objectForKey:displayIdentifier] objectForKey:key] ?: [[_defaultAppSettings objectForKey:displayIdentifier] objectForKey:key];
 }
 
 -(void)setValue:(id)value forKey:(NSString *)key {
@@ -90,7 +98,14 @@ static GGPrefsManager *sharedInstance = nil;
 }
 
 -(void)dealloc {
+    [_appSettings release];
+    [_defaultAppSettings release];
+    [_defaultUserSettings release];
+    [_userSettings release];
+
     _appSettings = nil;
+    _defaultAppSettings = nil;
+    _defaultUserSettings = nil;
     _userSettings = nil;
 
     [super dealloc];
@@ -100,6 +115,8 @@ static GGPrefsManager *sharedInstance = nil;
 
 -(void)loadPreferences {
     _appSettings = [[NSDictionary alloc] initWithContentsOfFile:APP_SETTINGS];
+    _defaultAppSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_APP_SETTINGS];
+    _defaultUserSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_USER_SETTINGS];
     _userSettings = [[NSDictionary alloc] initWithContentsOfFile:USER_SETTINGS];
 
     NSFileManager *manager = [NSFileManager defaultManager];
@@ -111,11 +128,11 @@ static GGPrefsManager *sharedInstance = nil;
     }
 
     if(_appSettings == nil) {
-        _appSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_APP_SETTINGS];
+        _appSettings = [_defaultAppSettings copy];
     }
 
     if(_userSettings == nil) {
-        _userSettings = [[NSDictionary alloc] initWithContentsOfFile:DEFAULT_USER_SETTINGS];
+        _userSettings = [_defaultUserSettings copy];
     }
 }
 

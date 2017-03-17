@@ -9,6 +9,10 @@ But Goodges is intelligent ! It varies depending on the app : if there are two u
 Also, if the app is set so as to not display any badges, Goodges will take that into account and will not show anything.
 
 ### Changelog
+**Version 1.1.5**
+* Added Harbor compatibility.
+* Little bug fixes.
+
 **Version 1.1.4**
 * Fixes hidden labels that would display randomly.
 
