@@ -1,7 +1,9 @@
 # Goodges
 Goodbye badges, hello labels!
 
-**Important note:** This tweak is not maintained anymore. If a developer would like to take over the project, please contact me.
+## Disclaimer
+
+**This repository is not maintained anymore. Please see [NoisyFlake's repository](https://github.com/NoisyFlake/Goodges) for an updated version.**
 
 ### Description
 Goodges radically changes the way notifications are displayed on the homescreen.
